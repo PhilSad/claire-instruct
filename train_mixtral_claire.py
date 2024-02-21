@@ -130,7 +130,7 @@ trainer = trl.SFTTrainer(
 model.config.use_cache = False
 
 
-wandb.init(project='project_name', config = dict(peft_config=config.to_dict()))
+wandb.init(project=project_name, config = dict(peft_config=config.to_dict()))
 wandb_callback = LLMSampleCB(trainer, test_data, num_samples=10, max_new_tokens=256)
 trainer.add_callback(wandb_callback)
 trainer.train()
